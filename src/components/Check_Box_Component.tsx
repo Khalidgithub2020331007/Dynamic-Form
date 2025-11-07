@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Checkbox } from 'antd';
 import { getValidationRules } from '../validation/validation';
-import './Component.css';
 
 
 import type { FieldsType } from '../types/FieldTypes'

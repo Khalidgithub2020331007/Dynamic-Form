@@ -1,6 +1,5 @@
 import React from 'react'
-import { Form, Select } from 'antd';
-const { Option } = Select;
+import { Form } from 'antd';
 import type { FieldsType } from '../types/FieldTypes'
 import Input from 'antd/es/input/Input'
 import { getValidationRules } from '../validation/validation'
@@ -10,6 +9,7 @@ type ComponentData={
 
 const Email_PassWord_Text_Component: React.FC<ComponentData> = ({field}) => {
     // console.log(field)
+  
   return (
     <div>
       <Form.Item
@@ -21,11 +21,6 @@ const Email_PassWord_Text_Component: React.FC<ComponentData> = ({field}) => {
       >
         <Input type={field.type} placeholder={field.placeholder} />
         
-         {field.options?.map((opt) => (
-      <Option key={opt.value} value={opt.value}>
-        {opt.label}
-      </Option>
-    ))}
 
       </Form.Item>
     </div>

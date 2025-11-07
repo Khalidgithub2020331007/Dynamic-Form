@@ -55,10 +55,9 @@
 import React from 'react'
 import Check_Box from '../components/Check_Box_Component'
 import Radio_Component from '../components/Radio_Component'
-import Number_Component from '../components/Number_Component'
 import type { FieldsType } from '../types/FieldTypes'
-import Text_Area_Compornet from '../components/Text_Area_Compornet'
-import Email_PassWord_Text_Component from '../components/Email_PassWord_Text_Component'
+import Email_PassWord_Text_Component from '../components/Email_PassWord_Text_Component_Text_Area'
+import Select_Component from '../components/Select_Component'
 
 type ComponentData={
   data: FieldsType
@@ -75,9 +74,9 @@ const Component_Gather: React.FC<ComponentData> = ({data}) => {
               {data.type === "email" && <Email_PassWord_Text_Component field={data} />}
               {data.type === "password" && <Email_PassWord_Text_Component field={data}/>}
               {data.type === "text" && <Email_PassWord_Text_Component  field={data} />}
-              {data.type === "select" && <Email_PassWord_Text_Component field={data} />}
-              {data.type === "number" && <Number_Component field={data} />}
-              {data.type === "textarea" && <Text_Area_Compornet field={data} />}
+              {data.type === "select" && <Select_Component field={data} />}
+              {data.type === "number" && <Email_PassWord_Text_Component field={data} />}
+              {data.type === "textarea" && <Email_PassWord_Text_Component field={data} />}
               {data.type === "checkbox" && <Check_Box  field={data} />}
         
         {/* <p>Out of box</p> */}

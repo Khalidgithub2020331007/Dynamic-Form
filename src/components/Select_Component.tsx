@@ -1,16 +1,34 @@
-import React from 'react'
-import type { FieldsType } from '../types/FieldTypes'
-type ComponentData={
-  field: FieldsType
-}
+import React from 'react';
+import { Form, Select } from 'antd';
+import type { FieldsType } from '../types/FieldTypes';
+import { getValidationRules } from '../validation/validation';
 
-const Select_Component: React.FC<ComponentData> = ({field}) => {
-    // console.log(field)
+const { Option } = Select;
+
+type ComponentData = {
+  field: FieldsType;
+};
+
+const Select_Component: React.FC<ComponentData> = ({ field }) => {
+  // console.log('Options:', field.options);
+
   return (
-    <div>
-      <h2>Select componet no elelmtn {field.id}</h2>
-    </div>
-  )
-}
+    <Form.Item
+      key={field.id}
+      name={field.name}
+      label={field.label}
+      rules={getValidationRules(field.validations)}
+    >
+      
+      <Select placeholder={field.placeholder}>
+        {field.options?.map((opt) => (
+          <Option key={opt.value} value={opt.value}>
+            {opt.label}
+          </Option>
+        ))}
+      </Select>
+    </Form.Item>
+  );
+};
 
-export default Select_Component
+export default Select_Component;

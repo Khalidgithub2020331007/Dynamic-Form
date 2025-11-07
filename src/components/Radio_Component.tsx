@@ -2,7 +2,6 @@ import React from 'react';
 import type { FieldsType } from '../types/FieldTypes';
 import { Form, Radio } from 'antd';
 import { getValidationRules } from '../validation/validation';
-import './Component.css';
 
 type ComponentData = {
   field: FieldsType;
