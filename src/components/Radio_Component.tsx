@@ -8,20 +8,30 @@ type ComponentData={
   setUserType_Bolean_value:React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Radio_Component: React.FC<ComponentData> = ({ field,setUserType_Bolean_value }) => {
-  const handleRadioChange = (e: RadioChangeEvent) => {
-    const selectedValue = e.target.value;
-    // console.log('Selected Radio Value:', selectedValue);
-    if (selectedValue === 'business') {
-      setUserType_Bolean_value(true);
-    } else {
-      setUserType_Bolean_value(false);
-    }
-    
+const Radio_Component: React.FC<ComponentData> =
+(
+  {
+     field,
+     setUserType_Bolean_value
   }
+) =>
+  {
+    const handleRadioChange = (e: RadioChangeEvent) =>
+    {
+      const selectedValue = e.target.value;
+      if (selectedValue === 'business')
+      {
+        setUserType_Bolean_value(true);
+      }
+      else
+      {
+        setUserType_Bolean_value(false);
+      }
+    
+    }
 
 
-  return (
+  return(
     <div>
      
         <Form.Item
@@ -33,11 +43,13 @@ const Radio_Component: React.FC<ComponentData> = ({ field,setUserType_Bolean_val
 
         >
           <Radio.Group onChange={handleRadioChange}>
-            {field.options?.map((opt) => (
-              <Radio key={opt.value} value={opt.value}>
-                {opt.label}
-              </Radio>
-            ))}
+            {field.options?.map((opt) => 
+              (
+                <Radio key={opt.value} value={opt.value}>
+                  {opt.label}
+                </Radio>
+              ))
+            }
           </Radio.Group>
         </Form.Item>
 

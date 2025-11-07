@@ -9,8 +9,16 @@ type ComponentData={
   setSpecialOffers_Bolean_value:React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Check_Box_Component: React.FC<ComponentData> = ({field,setSpecialOffers_Bolean_value}) => {
-    const handleRadioChange = (e: CheckboxChangeEvent) => {
+const Check_Box_Component: React.FC<ComponentData> =
+(
+  {
+    field,
+    setSpecialOffers_Bolean_value
+  }
+) => 
+  {
+    const handleRadioChange = (e: CheckboxChangeEvent) =>
+    {
       const selectedValue = e.target.checked;
       console.log('Selected CheckBox:', selectedValue);
       setSpecialOffers_Bolean_value(selectedValue)

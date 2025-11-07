@@ -249,7 +249,7 @@
         {
           "rule": "max",
           "value": 100,
-          "message": "Please enter a valid age"
+          "message": "Please enter a valid age between 18 and 100"
         }
       ]
     },
