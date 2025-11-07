@@ -41,8 +41,7 @@ import type { FormProps } from 'antd';
 const JSON_Fetching: React.FC = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState<FormDataType | null>(null);
-
-  useEffect(() => {
+   useEffect(() => {
     fetch('src/assets/sample.json')
       .then((res) => res.json())
       .then((data) => setData(data))

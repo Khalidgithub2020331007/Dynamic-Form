@@ -4,8 +4,9 @@ import type { FieldsType } from '../types/FieldTypes'
 import Input from 'antd/es/input/Input'
 import { getValidationRules } from '../validation/validation'
 type ComponentData={
-  field: FieldsType
+  field: FieldsType,
 }
+
 
 const Email_PassWord_Text_Component: React.FC<ComponentData> = ({field}) => {
     // console.log(field)

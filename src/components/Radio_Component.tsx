@@ -1,13 +1,23 @@
 import React from 'react';
 import type { FieldsType } from '../types/FieldTypes';
-import { Form, Radio } from 'antd';
+import { Form, Radio, type RadioChangeEvent } from 'antd';
 import { getValidationRules } from '../validation/validation';
 
-type ComponentData = {
-  field: FieldsType;
-};
+type ComponentData={
+  field: FieldsType,
+  setUserType_Bolean_value:React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const Radio_Component: React.FC<ComponentData> = ({ field }) => {
+const Radio_Component: React.FC<ComponentData> = ({ field,setUserType_Bolean_value }) => {
+  const handleRadioChange = (e: RadioChangeEvent) => {
+    const selectedValue = e.target.value;
+    console.log('Selected Radio Value:', selectedValue);
+    if (selectedValue === 'business') {
+      setUserType_Bolean_value(true);
+    } else {
+      setUserType_Bolean_value(false);
+    }
+  }
 
 
   return (
@@ -21,7 +31,7 @@ const Radio_Component: React.FC<ComponentData> = ({ field }) => {
           initialValue={String(field.defaultValue)}
 
         >
-          <Radio.Group>
+          <Radio.Group onChange={handleRadioChange}>
             {field.options?.map((opt) => (
               <Radio key={opt.value} value={opt.value}>
                 {opt.label}

@@ -52,7 +52,7 @@
 
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import Check_Box from '../components/Check_Box_Component'
 import Radio_Component from '../components/Radio_Component'
 import type { FieldsType } from '../types/FieldTypes'
@@ -66,11 +66,14 @@ type ComponentData={
 
 
 const Component_Gather: React.FC<ComponentData> = ({data}) => {
+   const [userType_Bolean_value, setUserType_Bolean_value] = useState<boolean>(false);
+    console.log('User Type Boolean Value:', userType_Bolean_value);
+  
     // console.log({data})
   return (
     <div>
         
-              {data.type === "radio" && <Radio_Component field={data} />}
+              {data.type === "radio" && <Radio_Component field={data} setUserType_Bolean_value={setUserType_Bolean_value} />}
               {data.type === "email" && <Email_PassWord_Text_Component field={data} />}
               {data.type === "password" && <Email_PassWord_Text_Component field={data}/>}
               {data.type === "text" && <Email_PassWord_Text_Component  field={data} />}

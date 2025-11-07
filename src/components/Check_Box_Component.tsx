@@ -21,7 +21,7 @@ const Check_Box_Component: React.FC<ComponentData> = ({field}) => {
           initialValue={ false }
 
         >
-                  <Checkbox>{field.label}</Checkbox>
+        <Checkbox>{field.label}</Checkbox>
 
         </Form.Item>
         
