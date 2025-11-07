@@ -11,12 +11,13 @@ type ComponentData={
 const Radio_Component: React.FC<ComponentData> = ({ field,setUserType_Bolean_value }) => {
   const handleRadioChange = (e: RadioChangeEvent) => {
     const selectedValue = e.target.value;
-    console.log('Selected Radio Value:', selectedValue);
+    // console.log('Selected Radio Value:', selectedValue);
     if (selectedValue === 'business') {
       setUserType_Bolean_value(true);
     } else {
       setUserType_Bolean_value(false);
     }
+    
   }
 
 

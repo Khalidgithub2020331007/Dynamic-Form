@@ -1,7 +1,6 @@
 import type { Rule } from 'antd/es/form';
 import type { ValidationsType } from '../types/FieldTypes';
 
-// ✅ validations is optional
 export const getValidationRules = (validations?: ValidationsType[]): Rule[] => {
   if (!validations) return [];
 
@@ -12,9 +11,30 @@ export const getValidationRules = (validations?: ValidationsType[]): Rule[] => {
       case 'email':
         return { type: 'email', message: v.message };
       case 'minLength':
-        return { min: Number(v.value), message: v.message };
+        return { type: 'string', min: Number(v.value), message: v.message };
+
       case 'maxLength':
-        return { max: Number(v.value), message: v.message };
+        return { type: 'string', max: Number(v.value), message: v.message };
+      case 'min':
+        return {
+          validator: (_, value) => {
+            if (value === undefined || value === null || value === '') return Promise.resolve();
+            return Number(value) >= Number(v.value)
+              ? Promise.resolve()
+              : Promise.reject(new Error(v.message));
+          },
+        };
+
+      case 'max':
+        return {
+          validator: (_, value) => {
+            if (value === undefined || value === null || value === '') return Promise.resolve();
+            return Number(value) <= Number(v.value)
+              ? Promise.resolve()
+              : Promise.reject(new Error(v.message));
+          },
+        };
+
       case 'pattern':
         return { pattern: new RegExp(v.value as string), message:v.message}
       

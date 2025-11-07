@@ -41,7 +41,15 @@ import type { FormProps } from 'antd';
 const JSON_Fetching: React.FC = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState<FormDataType | null>(null);
-   useEffect(() => {
+  const [userType_Bolean_value, setUserType_Bolean_value] = useState<boolean>(false);
+  const [specialOffers_Bolean_value, setSpecialOffers_Bolean_value] = useState<boolean>(false);
+  const [email_Bolean_value, setEmail_Bolean_value] = useState<boolean>(false);
+  const [country_Bolean_value, setCountry_Bolean_value] = useState<boolean>(false);
+  const [state_Boolean_value, setState_Boolean_value] = useState<boolean>(false);
+  const [city_Boolean_value, setCity_Boolean_value] = useState<boolean>(false);
+
+
+  useEffect(() => {
     fetch('src/assets/sample.json')
       .then((res) => res.json())
       .then((data) => setData(data))
@@ -68,7 +76,14 @@ const JSON_Fetching: React.FC = () => {
           <>
             <h1>{data.title}</h1>
             {data.fields.map((field: FieldsType) => (
-              <Component_Gather key={field.id} data={field} />
+              <Component_Gather key={field.id} data={field}
+               userType_Bolean_value={userType_Bolean_value} setUserType_Bolean_value={setUserType_Bolean_value} 
+               specialOffers_Bolean_value={specialOffers_Bolean_value} setSpecialOffers_Bolean_value={setSpecialOffers_Bolean_value}
+               email_Bolean_value={email_Bolean_value} setEmail_Bolean_value={setEmail_Bolean_value}
+               country_Bolean_value={country_Bolean_value} setCountry_Bolean_value={setCountry_Bolean_value}
+               state_Boolean_value={state_Boolean_value} setState_Boolean_value={setState_Boolean_value}
+               city_Boolean_value={city_Boolean_value} setCity_Boolean_value={setCity_Boolean_value}
+               />
             ))}
           </>
         ) : (
