@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'antd';
+import { Form, type FormInstance } from 'antd';
 import type { FieldsType } from '../types/FieldTypes'
 import Input from 'antd/es/input/Input'
 import { getValidationRules } from '../validation/validation'
@@ -10,7 +10,8 @@ type ComponentData={
   setEmail_Bolean_value:React.Dispatch<React.SetStateAction<boolean>>,
   state_Boolean_value:boolean,
   city_Boolean_value:boolean ,
-  setCity_Boolean_value:React.Dispatch<React.SetStateAction<boolean>>
+  setCity_Boolean_value:React.Dispatch<React.SetStateAction<boolean>>,
+  form:FormInstance
 }
 
 
@@ -22,7 +23,8 @@ const Email_PassWord_Text_Component: React.FC<ComponentData> = (
     setEmail_Bolean_value,
     state_Boolean_value,
     city_Boolean_value,
-    setCity_Boolean_value
+    setCity_Boolean_value,
+    form
   }) => {
     const onHandleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => 
     {
@@ -42,14 +44,10 @@ const Email_PassWord_Text_Component: React.FC<ComponentData> = (
       
       if(field.name==="city")
       {
-        if(inputValue)
-        {
-          setCity_Boolean_value(true);
-        }
-        else
-        {
-          setCity_Boolean_value(false);
-        }
+        
+        setCity_Boolean_value(!!inputValue)
+        form.setFieldsValue({zipCode:undefined})
+
       }
     }
   const compnay_and_tax_verification:boolean=(field.name==="companyName" || field.name==="taxId") && userType_Bolean_value
