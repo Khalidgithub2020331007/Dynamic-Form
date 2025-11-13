@@ -64,6 +64,7 @@ const Component_Gather: React.FC<ComponentData> = (
               form={form}
               />}
               {data.type === "checkbox" && <Check_Box  field={data} setSpecialOffers_Bolean_value={setSpecialOffers_Bolean_value} />}
+              
         
         {/* <p>Out of box</p> */}
      
