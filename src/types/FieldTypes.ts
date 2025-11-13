@@ -3,7 +3,7 @@ export type ValidationsType={
     value?:string,
     message:string,
 }
-export type ConditionType={
+export interface ConditionType{
     field:string,
     operator:string,
     value:string
